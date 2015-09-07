@@ -15,6 +15,7 @@
 #include <utility>  // make_pair, pair
 
 #include "Collatz.h"
+#include "FastCollatz.h"
 
 using namespace std;
 
@@ -34,8 +35,19 @@ pair<int, int> collatz_read (const string& s) {
 // ------------
 
 int collatz_eval (int i, int j) {
-    // <your code>
-    return 1;}
+    int m = 1;
+    if (j < i) {
+        int tmp = i;
+        i = j;
+        j = tmp;
+    }
+    // at this point i is always <= j
+    while (i <= j) {
+        m = max(m, collatz_plen(i));
+        i++;
+    }
+    return m;
+}
 
 // -------------
 // collatz_print
