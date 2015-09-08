@@ -2,9 +2,9 @@
 #include <stdint.h>
 
 // USE int for fast but int overflows and int64_t for always correct
-#ifndef COLLATZ_INT
+#ifndef TINT
 #define TINT int64_t
-#endif /* COLLATZ_INT */
+#endif /* TINT */
 
 
 #ifdef __GNUC__
