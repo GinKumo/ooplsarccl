@@ -63,9 +63,9 @@ TEST(CollatzFixture, eval_6) {
     const int v = collatz_eval(10, 10);
     ASSERT_EQ(7, v);}
 
-//TEST(CollatzFixture, eval_7) {
-//    const int v = collatz_eval(999999, 1);
-//    ASSERT_EQ(525, v);}
+TEST(CollatzFixture, eval_7) {
+    const int v = collatz_eval(999999, 1);
+    ASSERT_EQ(525, v);}
 
 TEST(CollatzFixture, eval_8) {
     const int v = collatz_eval(1, 1);
