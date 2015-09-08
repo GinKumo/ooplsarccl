@@ -36,7 +36,7 @@ before_script:
 
 script:
     - date
-    - CXXFLAGS=NO_builtin_ctz=1 make test
+    - CXXFLAGS="-DNO_builtin_ctz=1" make test
 
 after_failure:
     - cat TestCollatz.tmp
