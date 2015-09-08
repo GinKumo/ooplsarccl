@@ -7,7 +7,7 @@
 #endif /* TINT */
 
 
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(NO_builtin_ctz)
 #define ctz __builtin_ctz
 #else /* if we don't have GNUC then use this pretty quick implementation */
 /* https://graphics.stanford.edu/~seander/bithacks.html#ZerosOnRightMultLookup */
