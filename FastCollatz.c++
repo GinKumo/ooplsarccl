@@ -1,5 +1,11 @@
 #include <cassert>
-#include <cstdint>
+#include <stdint.h>
+
+// USE int for fast but int overflows and int64_t for always correct
+#ifndef COLLATZ_INT
+#define TINT int64_t
+#endif /* COLLATZ_INT */
+
 
 #ifdef __GNUC__
 #define ctz __builtin_ctz
@@ -16,12 +22,13 @@ static int ctz(int v) {  // find the number of trailing zeros in 32-bit v
 }
 #endif /* __GNUC__ */
 
-int collatz_plen (int64_t p) {
-    int  c = 1;
-    int64_t cp;
+int collatz_plen (int i) {
+    TINT  p = i;
+    TINT  c = 1;
+    TINT cp;
 
     // 32 entry LUT for first 32 odd solutions
-    static int lut[32] = {
+    static TINT lut[32] = {
                 1,    8,   6,   17,
                20,   15,  10,   18,
                13,   21,   8,   16,
@@ -50,10 +57,10 @@ int collatz_plen (int64_t p) {
             p |= 1;
             // increment number of solutions found
             c += cp+1;
-            assert ((p & 1) == 1); // odd
+            assert ((p & 1) == 1); // p should always be odd
 
             // 32 entry lookup for first 32 odd solutions
-            if (p < sizeof(lut)/sizeof(lut[0])) {
+            if (p < 2*sizeof(lut)/sizeof(lut[0])) {
                 return c + lut[p/2] - 1;
             }
         }

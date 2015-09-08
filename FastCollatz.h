@@ -11,12 +11,10 @@
 // includes
 // --------
 
-#include <cstdint>  // int64_t
-
 /**
  * @param p the problem integer
  * @return the cycle length of p
  */
-int collatz_plen (int64_t p);
+int collatz_plen (int p);
 
 #endif // FastCollatz_h
