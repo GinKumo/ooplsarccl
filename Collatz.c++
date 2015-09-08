@@ -42,6 +42,7 @@ int collatz_eval (int i, int j) {
         j = tmp;
     }
     // at this point i is always <= j
+    assert( i <= j );
     while (i <= j) {
         m = max(m, collatz_plen(i));
         i++;
