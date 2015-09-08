@@ -60,7 +60,7 @@ int collatz_plen (int i) {
             assert ((p & 1) == 1); // p should always be odd
 
             // 32 entry lookup for first 32 odd solutions
-            if (p < 2*sizeof(lut)/sizeof(lut[0])) {
+            if (p < (int)(2*sizeof(lut)/sizeof(lut[0]))) {
                 return c + lut[p/2] - 1;
             }
         }
