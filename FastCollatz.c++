@@ -1,7 +1,7 @@
 #include <cassert>
 #include <stdint.h>
 
-// USE int for fast but int overflows and int64_t for always correct
+// USE int for fast but overflows on 32-bit and int64_t for always correct
 #ifndef TINT
 #define TINT int64_t
 #endif /* TINT */
